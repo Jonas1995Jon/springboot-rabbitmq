@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * Desc：
+ * Desc：生产者
  * Author Jonas
  * 2018/10/9 17:24
  */

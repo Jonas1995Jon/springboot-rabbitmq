@@ -10,7 +10,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import java.util.Map;
 
 /**
- * Desc：
+ * Desc：消费者
  * Author Jonas
  * 2018/10/10 15:06
  */
@@ -23,7 +23,9 @@ public class OrderReceiver {
                             durable = "true"
                     ),
                     exchange = @Exchange(
-                            name = "order-exchange", durable = "ture", type = "topic"
+                            name = "order-exchange",
+                            durable = "ture",
+                            type = "topic"
                     ),
                     key = "order.*"
             )
@@ -35,7 +37,7 @@ public class OrderReceiver {
         System.out.println("订单 ID：" + order.getId());
 
         Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
-        //
+        //ACK
         channel.basicAck(deliveryTag, false);
     }
 
